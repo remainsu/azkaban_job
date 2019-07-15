@@ -1,0 +1,27 @@
+config:
+  test.param1: param_test
+  
+nodes:
+  - name: jobC
+    type: command
+    config:
+      command: echo ${test.param1} "This is jobC, embedded on embedded_flow."
+    dependsOn:
+      - embedded_flow
+
+  - name: embedded_flow
+    type: flow
+    config:
+      test.flow.param1: param.flow_test
+    nodes:
+      - name: jobB
+        type: command
+        config:
+          command: echo "This is jobB."
+        dependsOn:
+          - jobA
+
+      - name: jobA
+        type: command
+        config:
+          command: echo ${test.flow.param1} "This is jobA."

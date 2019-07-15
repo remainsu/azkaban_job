@@ -1,0 +1,30 @@
+nodes:
+ - name: JobA
+   type: command
+   config:
+     command: bash /opt/azkaban/job/write_to_props.sh
+
+ - name: JobB
+   type: command
+   dependsOn:
+     - JobA
+   config:
+     command: echo "This is JobB."
+   condition: ${JobA:param1} == "AAA"
+
+ - name: JobC
+   type: command
+   dependsOn:
+     - JobA
+   config:
+     command: echo "This is JobC."
+   condition: ${JobA:param1} == "BBB"
+
+ - name: JobD
+   type: command
+   dependsOn:
+     - JobB
+     - JobC
+   config:
+     command: echo "This is JobD."
+   condition: one_success

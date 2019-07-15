@@ -1,0 +1,5 @@
+nodes:
+  - name: jobA
+    type: command
+    config:
+      command: echo "This is an echoed text by simple flow"

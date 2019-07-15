@@ -1,0 +1,6 @@
+# 文件名：test_5.job
+type=command
+dependencies=test_4
+retries=5
+command=echo "This is a test job, name is test_5."
+command.1=whoami

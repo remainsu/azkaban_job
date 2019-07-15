@@ -1,0 +1,6 @@
+# 文件名：test_4.job
+type=command
+dependencies=test_2,test_3
+retries=5
+command=echo "This is a test job, name is test_4."
+command.1=netstat -ntlp

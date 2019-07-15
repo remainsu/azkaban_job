@@ -1,0 +1,7 @@
+# 文件名：test_2.job
+type=command
+dependencies=test_1
+retries=5
+command=echo "This is a test job, name is test_2."
+command.1=pwd
+command.2=ls -l /opt/azkaban

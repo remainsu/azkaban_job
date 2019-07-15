@@ -1,0 +1,4 @@
+# 文件名：test_1.job
+type=command
+command=echo "This is a test job, name is test_1."
+retries=5
